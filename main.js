@@ -1,7 +1,10 @@
 // var width =500;
 // var height= 500;
 
-d3.csv("candy.csv", function(csv) {
+d3.csv("colleges.csv", function(csv) {
+    for (var i = 0; i < csv.length; ++i) {
+
+    }
  //    for (var i=0; i<csv.length; ++i) {
 	// 	csv[i].GPA = Number(csv[i].GPA);
 	// 	csv[i].SATM = Number(csv[i].SATM);
