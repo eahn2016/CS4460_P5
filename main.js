@@ -18,15 +18,10 @@ d3.csv("colleges.csv", function(data) {
 
     var colleges = Object.keys(collegeMap).sort();
 
-    // var dropdown = d3.select('graph')
-    //     .insert('select', 'svg')
-    //     .on('change', onChange);
-
     var changeCollege = function() {
         var newCollege = d3.select('select').property('value');
-        // return newCollege;
     }
-    var selection = d3.select('body')
+    var selection = d3.select('#graph')
         .append('p')
         .append('text')
         .text('Choose a College: ')
@@ -36,18 +31,9 @@ d3.csv("colleges.csv", function(data) {
 
     var selectCollege = selection.selectAll('option')
         .data(colleges)
-        // .attr('class', 'select')
-        // .attr('id', 'selectedCollege')
         .enter()
         .append('option')
         .text(function(d) {
             return d;
         })
-        // .attr("value", function (d) {
-        //     return d;
-        // });
-
-    console.log(colleges);
-
-
 	});
