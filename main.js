@@ -1,10 +1,48 @@
-// var width =500;
-// var height= 500;
+var width = 500;
+var height = 500;
 
-d3.csv("colleges.csv", function(csv) {
-    for (var i = 0; i < csv.length; ++i) {
+var graph = document.getElementById('graph');
 
+var svg = d3.select(graph)
+    .append('svg')
+    .attr('width', width)
+    .attr('height', height);
+
+d3.csv("colleges.csv", function(data) {
+    var collegeMap = {};
+    data.forEach(function(d) {
+        var college = d.Name;
+        collegeMap[college] = [];
+        collegeMap[college].push(college);
+    })
+
+    var colleges = Object.keys(collegeMap).sort();
+
+    var dropdown = d3.select('graph')
+        .insert('select', 'svg')
+        .on('change', changeCollege);
+
+    var changeCollege = function() {
+        var newCollege = d3.select(this).property('value')
     }
+
+    var selectCollege = d3.selectAll('option')
+        .data(colleges)
+        .append('p')
+        .append('text')
+        .text('Choose a College: ')
+        .append('select')
+        .attr('id', 'selectedCollege')
+        .enter().append('option')
+        .text(function(d) {
+            return d;
+        })
+        .attr("value", function (d) {
+            return d;
+        });
+
+    console.log(colleges);
+
  //    for (var i=0; i<csv.length; ++i) {
 	// 	csv[i].GPA = Number(csv[i].GPA);
 	// 	csv[i].SATM = Number(csv[i].SATM);
