@@ -8,7 +8,7 @@ function start() {
     var graph1 = document.getElementById('graph1');
     var graph2 = document.getElementById('graph2');
 
-    var dropdown1 = document.getElementById('dropdown1');
+    // var dropdown1 = document.getElementById('dropdown1');
     // var dropdown2 = document.getElementById('dropdown2');
 
     var svg1 = d3.select(graph1)
@@ -31,13 +31,13 @@ function start() {
         var newCollege1 = "Abilene Christian University";
         var newCollege2 = "Abilene Christian University";
 
-    var colors = {"White": "#94D1FF",
-                "Black": "#6266CC",
-                "Hispanic": "#1C2199",
-                "Asian": "#CC6266",
-                "American Indian": "#FFE8D4",
-                "Pacific Islander": "#CC8462",
-                "Biracial": "#95CCB7"};
+        var colors = {"White": "#94D1FF",
+                    "Black": "#6266CC",
+                    "Hispanic": "#1C2199",
+                    "Asian": "#CC6266",
+                    "American Indian": "#FFE8D4",
+                    "Pacific Islander": "#CC8462",
+                    "Biracial": "#95CCB7"};
 
         data.forEach(function(d) {
             var college1 = d.Name;
@@ -98,6 +98,45 @@ function start() {
                 {"Race": "Pacific Islander", "Percent": collegeMap1[newCollege1].pacific},
                 {"Race": "Biracial", "Percent": collegeMap1[newCollege1].biracial}];
 
+        // var collegeRaces = d3.nest()
+        //     .key(function(d) { return d.Race; })
+        //     .object(college1Races);
+            // .value(function(d) { return d.Percent;});
+
+        // console.log(collegeRaces);
+
+        // var legend = svg1.selectAll('legend')
+        //     .data(Object.keys(collegeRaces))
+        //     .enter().append('g')
+        //     .attr("class", "legend")
+        //     .attr("transform", function (d, i) {
+        //     {
+        //         return "translate(0," + i * 20 + ")"
+        //     }
+        // })
+
+        // legend.append('rect')
+        //     .attr("x", 0)
+        //     .attr("y", 0)
+        //     .attr("width", 10)
+        //     .attr("height", 10)
+        //     .style("fill", function (d) {
+        //         console.log(colors["White"]);
+        //         return Object.keys(colors);
+        //     })
+        //     .style("fill", function(d) { return colors[d.data["Race"]];
+            // });
+
+        // legend.append('text')
+        //     .attr("x", 20)
+        //     .attr("y", 10)
+        //     .text(function (d, i) {
+        //         return d.Race;
+        //     })
+        //     .attr("class", "textselected")
+        //     .style("text-anchor", "start")
+        //     .style("font-size", 15)
+
         var pie1 = d3.pie()
             .value(function(d) { return d.Percent; })
             (college1Races);
@@ -129,7 +168,7 @@ function start() {
 
         function changeCollege1() {
             newCollege1 = d3.select('#select1').property('value');
-            var college1Races = [{"Race": "White", "Percent": collegeMap1[newCollege1].white},
+            college1Races = [{"Race": "White", "Percent": collegeMap1[newCollege1].white},
                 {"Race": "Black", "Percent": collegeMap1[newCollege1].black},
                 {"Race": "Hispanic", "Percent": collegeMap1[newCollege1].hispanic},
                 {"Race": "Asian", "Percent": collegeMap1[newCollege1].asian},
@@ -151,7 +190,7 @@ function start() {
             .attr('id', 'select1')
             .on('change', function() {
                 changeCollege1();
-                var college1Races = [{"Race": "White", "Percent": collegeMap1[newCollege1].white},
+                college1Races = [{"Race": "White", "Percent": collegeMap1[newCollege1].white},
                     {"Race": "Black", "Percent": collegeMap1[newCollege1].black},
                     {"Race": "Hispanic", "Percent": collegeMap1[newCollege1].hispanic},
                     {"Race": "Asian", "Percent": collegeMap1[newCollege1].asian},
@@ -182,42 +221,6 @@ function start() {
                         .attr("d", arc);
                     });
             });
-
-        // selection1.select('#graph1')
-        //     // .attr('id', 'select1')
-        //     .on('change', function() {
-        //         changeCollege1();
-        //         var college1Races = [{"Race": "White", "Percent": collegeMap1[newCollege1].white},
-        //             {"Race": "Black", "Percent": collegeMap1[newCollege1].black},
-        //             {"Race": "Hispanic", "Percent": collegeMap1[newCollege1].hispanic},
-        //             {"Race": "Asian", "Percent": collegeMap1[newCollege1].asian},
-        //             {"Race": "American Indian", "Percent": collegeMap1[newCollege1].indian},
-        //             {"Race": "Pacific Islander", "Percent": collegeMap1[newCollege1].pacific},
-        //             {"Race": "Biracial", "Percent": collegeMap1[newCollege1].biracial}];
-        //         var pie1 = d3.pie()
-        //             .value(function(d) { return d.Percent; })
-        //             (college1Races);
-
-        //         var g = svg1.selectAll("arc")
-        //             .data(pie1)
-        //             .enter().append("g")
-        //             .attr("class", "arc");
-
-        //         g.append("path")
-        //             .attr("d", arc)
-        //             .style("fill", function(d) { return colors[d.data["Race"]];
-        //             })
-        //             .on("mouseover", function(d) {
-        //                 d3.select(this).transition()
-        //                 .duration(500)
-        //                 .attr("d", arcOver);
-        //             })
-        //             .on("mouseout", function(d) {
-        //                 d3.select(this).transition()
-        //                 .duration(1000)
-        //                 .attr("d", arc);
-        //             });
-        //     });
 
         var selectCollege1 = selection1.selectAll('option')
             .data(colleges1)
@@ -267,7 +270,7 @@ function start() {
 
         function changeCollege2() {
             newCollege2 = d3.select('#select2').property('value');
-            var college2Races = [{"Race": "White", "Percent": collegeMap2[newCollege2].white},
+            college2Races = [{"Race": "White", "Percent": collegeMap2[newCollege2].white},
                 {"Race": "Black", "Percent": collegeMap2[newCollege2].black},
                 {"Race": "Hispanic", "Percent": collegeMap2[newCollege2].hispanic},
                 {"Race": "Asian", "Percent": collegeMap2[newCollege2].asian},
@@ -291,7 +294,7 @@ function start() {
             .on('change', function() {
             // .on('click', function() {
                 changeCollege2();
-                var college2Races = [{"Race": "White", "Percent": collegeMap2[newCollege2].white},
+                college2Races = [{"Race": "White", "Percent": collegeMap2[newCollege2].white},
                     {"Race": "Black", "Percent": collegeMap2[newCollege2].black},
                     {"Race": "Hispanic", "Percent": collegeMap2[newCollege2].hispanic},
                     {"Race": "Asian", "Percent": collegeMap2[newCollege2].asian},
@@ -332,8 +335,6 @@ function start() {
                 return d;
             });
         })
-
-
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~General Facts~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 

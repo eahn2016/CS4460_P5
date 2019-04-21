@@ -9,7 +9,15 @@ body {
 }
 
 span {
-    display: block;
+  display: block;
+}
+
+svg {
+  margin-left: 15px;
+}
+
+#legend {
+  text-align: center;
 }
 
 #wrapper {
@@ -17,8 +25,8 @@ span {
 }
 
 #graph1 {
-    float:left;
-    padding-left: 5%;
+  float:left;
+  padding-left: 5%;
 }
 
 #graph2{
@@ -28,12 +36,12 @@ span {
 
 #chart1 {
 	float: left;
-    padding-left: 12.5%;
-    text-align: center;
+  padding-left: 12.5%;
+  text-align: center;
 }
 
 #chart2 {
 	float: right;
-    padding-right: 12.5%;
-    text-align: center;
+  padding-right: 12.5%;
+  text-align: center;
 }
