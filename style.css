@@ -1,6 +1,7 @@
 h1 {
   text-align: center;
   font-family: Avenir;
+  font-size: 48px;
 }
 
 body {
@@ -19,4 +20,13 @@ body {
 #graph2{
 	float:right;
 	padding-right: 10%;
+}
+
+
+#chart3 {
+	text-align: left;
+}
+
+#chart4 {
+	text-align: right;
 }

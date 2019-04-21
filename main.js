@@ -45,12 +45,24 @@ function start() {
             collegeMap1[college1].pacific = +d["% Pacific Islander"];
             collegeMap1[college1].biracial = +d["% Biracial"];
 
+            collegeMap1[college1].control = d["Control"];
+            collegeMap1[college1].region = d["Region"];
+            collegeMap1[college1].admission = Math.floor(+d["Admission Rate"] * 100) + "%";
+            collegeMap1[college1].retention = Math.floor(+d["Retention Rate (First Time Students)"] * 100) + "%";
+
+
             collegeMap2[college2].white = +d["% White"];
             collegeMap2[college2].black = +d["% Black"];
             collegeMap2[college2].hispanic = +d["% Hispanic"];
             collegeMap2[college2].indian = +d["% American Indian"];
             collegeMap2[college2].pacific = +d["% Pacific Islander"];
             collegeMap2[college2].biracial = +d["% Biracial"];
+
+
+            collegeMap2[college2].control = d["Control"];
+            collegeMap2[college2].region = d["Region"];
+            collegeMap2[college2].admission = Math.floor(+d["Admission Rate"] * 100) + "%";
+            collegeMap2[college2].retention = Math.floor(+d["Retention Rate (First Time Students)"] * 100) + "%";
         })
 
 
@@ -67,6 +79,11 @@ function start() {
                 {"Race": "American Indian", "Percent": collegeMap1[newCollege1].indian},
                 {"Race": "Pacific Islander", "Percent": collegeMap1[newCollege1].pacific},
                 {"Race": "Biracial", "Percent": collegeMap1[newCollege1].biracial}];
+
+            d3.select("#control1").text(collegeMap1[newCollege1].control);
+            d3.select("#region1").text(collegeMap1[newCollege1].region);
+            d3.select("#admitrate1").text(collegeMap1[newCollege1].admission);
+            d3.select("#retention1").text(collegeMap1[newCollege1].retention);
         }
 
         var selection1 = d3.select('#graph1')
@@ -128,7 +145,12 @@ function start() {
                 {"Race": "American Indian", "Percent": collegeMap2[newCollege2].indian},
                 {"Race": "Pacific Islander", "Percent": collegeMap2[newCollege2].pacific},
                 {"Race": "Biracial", "Percent": collegeMap2[newCollege2].biracial}];
-            // console.log(collegeMap2[newCollege2]);
+
+
+            d3.select("#control2").text(collegeMap2[newCollege2].control);
+            d3.select("#region2").text(collegeMap2[newCollege2].region);
+            d3.select("#admitrate2").text(collegeMap2[newCollege2].admission);
+            d3.select("#retention2").text(collegeMap2[newCollege2].retention);
         }
 
         var selection2 = d3.select('#graph2')
@@ -168,7 +190,7 @@ function start() {
 
                 g.append("path")
                     .attr("d", arc)
-                    .style("fill", function(d) { console.log(d); return colors[d.data["Race"]];
+                    .style("fill", function(d) {return colors[d.data["Race"]];
                 });
             });
 
@@ -180,4 +202,15 @@ function start() {
                 return d;
             });
         })
+
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~General Facts~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+
+
+
+
+
+
 }
