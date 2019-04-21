@@ -1,47 +1,22 @@
-/*body {
-  font: 12px sans-serif;
-}
-.tick > line {
-	fill: none;
-	stroke: black;
-}
-.tick > text {
-	fill: black;
+h1 {
+  text-align: center;
+  font-family: Avenir;
 }
 
-.unselected {
-	stroke: black;
-	fill: black;
+body {
+	font-family: Avenir;
 }
-.selected {
-	stroke: red;
-	fill:red;
-}
-.selected2 {
-	stroke: orange;
-	fill:orange;
-}
-path.domain {
-	fill: none;
-	stroke-width: 2px;
-	stroke: black;
-}
+
 #wrapper {
 	clear:both;
 }
-#chart1 {
+
+#graph1 {
     float:left;
+    padding-left: 10%;
 }
-#chart2{
-	float:left;
+
+#graph2{
+	float:right;
+	padding-right: 10%;
 }
-#chart3 {
-	float:left;
-	margin-top: 30px;
-	margin-left: 20px;
-}
-.brush .extent {
-	fill-opacity: .1;
-	stroke: #fff;
-	shape-rendering: crispEdges;
-}*/
