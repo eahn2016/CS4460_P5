@@ -78,6 +78,16 @@ function start() {
         var colleges1 = Object.keys(collegeMap1);
         var colleges2 = Object.keys(collegeMap2);
 
+        var arc = d3.arc()
+            .outerRadius(radius - 30)
+            .innerRadius(0);
+
+        var arcOver = d3.arc()
+            .innerRadius(0)
+            .outerRadius(radius - 10);
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ College 1 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
         var college1Races = [{"Race": "White", "Percent": collegeMap1[newCollege1].white},
                 {"Race": "Black", "Percent": collegeMap1[newCollege1].black},
                 {"Race": "Hispanic", "Percent": collegeMap1[newCollege1].hispanic},
@@ -86,25 +96,29 @@ function start() {
                 {"Race": "Pacific Islander", "Percent": collegeMap1[newCollege1].pacific},
                 {"Race": "Biracial", "Percent": collegeMap1[newCollege1].biracial}];
 
-            var pie = d3.pie()
-                .value(function(d) { return d.Percent; })
-                (college1Races);
+        var pie1 = d3.pie()
+            .value(function(d) { return d.Percent; })
+            (college1Races);
 
-            var arc = d3.arc()
-                .outerRadius(radius - 10)
-                .innerRadius(0);
+        var g = svg1.selectAll("arc")
+            .data(pie1)
+            .enter().append("g")
+            .attr("class", "arc");
 
-            var g = svg1.selectAll("arc")
-                .data(pie)
-                .enter().append("g")
-                .attr("class", "arc");
-
-            g.append("path")
-                .attr("d", arc)
-                .style("fill", function(d) { return colors[d.data["Race"]];
+        g.append("path")
+            .attr("d", arc)
+            .style("fill", function(d) { return colors[d.data["Race"]];
+            })
+            .on("mouseover", function(d) {
+                d3.select(this).transition()
+                .duration(500)
+                .attr("d", arcOver);
+            })
+            .on("mouseout", function(d) {
+                d3.select(this).transition()
+                .duration(500)
+                .attr("d", arc);
             });
-
-    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ College 1 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
         function changeCollege1() {
             newCollege1 = d3.select('#select1').property('value');
@@ -129,7 +143,6 @@ function start() {
             .append('select')
             .attr('id', 'select1')
             .on('change', function() {
-            // .on('click', function() {
                 changeCollege1();
                 var college1Races = [{"Race": "White", "Percent": collegeMap1[newCollege1].white},
                     {"Race": "Black", "Percent": collegeMap1[newCollege1].black},
@@ -138,23 +151,29 @@ function start() {
                     {"Race": "American Indian", "Percent": collegeMap1[newCollege1].indian},
                     {"Race": "Pacific Islander", "Percent": collegeMap1[newCollege1].pacific},
                     {"Race": "Biracial", "Percent": collegeMap1[newCollege1].biracial}];
-                var pie = d3.pie()
+                var pie1 = d3.pie()
                     .value(function(d) { return d.Percent; })
                     (college1Races);
 
-                var arc = d3.arc()
-                    .outerRadius(radius - 10)
-                    .innerRadius(0);
-
                 var g = svg1.selectAll("arc")
-                    .data(pie)
+                    .data(pie1)
                     .enter().append("g")
                     .attr("class", "arc");
 
                 g.append("path")
                     .attr("d", arc)
                     .style("fill", function(d) { return colors[d.data["Race"]];
-                });
+                    })
+                    .on("mouseover", function(d) {
+                        d3.select(this).transition()
+                        .duration(500)
+                        .attr("d", arcOver);
+                    })
+                    .on("mouseout", function(d) {
+                        d3.select(this).transition()
+                        .duration(1000)
+                        .attr("d", arc);
+                    });
             });
 
         var selectCollege1 = selection1.selectAll('option')
@@ -178,10 +197,6 @@ function start() {
             .value(function(d) { return d.Percent; })
             (college2Races);
 
-        var arc = d3.arc()
-            .outerRadius(radius - 10)
-            .innerRadius(0);
-
         var g = svg2.selectAll("arc")
             .data(pie)
             .enter().append("g")
@@ -190,6 +205,16 @@ function start() {
         g.append("path")
             .attr("d", arc)
             .style("fill", function(d) {return colors[d.data["Race"]];
+            })
+            .on("mouseover", function(d) {
+                d3.select(this).transition()
+                .duration(500)
+                .attr("d", arcOver);
+            })
+            .on("mouseout", function(d) {
+                d3.select(this).transition()
+                .duration(1000)
+                .attr("d", arc);
         });
 
         function changeCollege2() {
@@ -230,10 +255,6 @@ function start() {
                     .value(function(d) { return d.Percent; })
                     (college2Races);
 
-                var arc = d3.arc()
-                    .outerRadius(radius - 10)
-                    .innerRadius(0);
-
                 var g = svg2.selectAll("arc")
                     .data(pie)
                     .enter().append("g")
@@ -242,6 +263,16 @@ function start() {
                 g.append("path")
                     .attr("d", arc)
                     .style("fill", function(d) {return colors[d.data["Race"]];
+                    })
+                    .on("mouseover", function(d) {
+                        d3.select(this).transition()
+                        .duration(500)
+                        .attr("d", arcOver);
+                    })
+                    .on("mouseout", function(d) {
+                        d3.select(this).transition()
+                        .duration(1000)
+                        .attr("d", arc);
                 });
             });
 
