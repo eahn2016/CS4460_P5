@@ -4,10 +4,12 @@ function start() {
     var width = 500;
     var height = 500;
     var radius = Math.min(width, height) / 2;
-    // var margin = 40;
 
     var graph1 = document.getElementById('graph1');
     var graph2 = document.getElementById('graph2');
+
+    var dropdown1 = document.getElementById('dropdown1');
+    // var dropdown2 = document.getElementById('dropdown2');
 
     var svg1 = d3.select(graph1)
         .append('svg')
@@ -120,6 +122,11 @@ function start() {
                 .attr("d", arc);
             });
 
+        d3.select("#control1").text(collegeMap1[newCollege1].control);
+        d3.select("#region1").text(collegeMap1[newCollege1].region);
+        d3.select("#admitrate1").text(collegeMap1[newCollege1].admission);
+        d3.select("#retention1").text(collegeMap1[newCollege1].retention);
+
         function changeCollege1() {
             newCollege1 = d3.select('#select1').property('value');
             var college1Races = [{"Race": "White", "Percent": collegeMap1[newCollege1].white},
@@ -176,6 +183,42 @@ function start() {
                     });
             });
 
+        // selection1.select('#graph1')
+        //     // .attr('id', 'select1')
+        //     .on('change', function() {
+        //         changeCollege1();
+        //         var college1Races = [{"Race": "White", "Percent": collegeMap1[newCollege1].white},
+        //             {"Race": "Black", "Percent": collegeMap1[newCollege1].black},
+        //             {"Race": "Hispanic", "Percent": collegeMap1[newCollege1].hispanic},
+        //             {"Race": "Asian", "Percent": collegeMap1[newCollege1].asian},
+        //             {"Race": "American Indian", "Percent": collegeMap1[newCollege1].indian},
+        //             {"Race": "Pacific Islander", "Percent": collegeMap1[newCollege1].pacific},
+        //             {"Race": "Biracial", "Percent": collegeMap1[newCollege1].biracial}];
+        //         var pie1 = d3.pie()
+        //             .value(function(d) { return d.Percent; })
+        //             (college1Races);
+
+        //         var g = svg1.selectAll("arc")
+        //             .data(pie1)
+        //             .enter().append("g")
+        //             .attr("class", "arc");
+
+        //         g.append("path")
+        //             .attr("d", arc)
+        //             .style("fill", function(d) { return colors[d.data["Race"]];
+        //             })
+        //             .on("mouseover", function(d) {
+        //                 d3.select(this).transition()
+        //                 .duration(500)
+        //                 .attr("d", arcOver);
+        //             })
+        //             .on("mouseout", function(d) {
+        //                 d3.select(this).transition()
+        //                 .duration(1000)
+        //                 .attr("d", arc);
+        //             });
+        //     });
+
         var selectCollege1 = selection1.selectAll('option')
             .data(colleges1)
             .enter()
@@ -216,6 +259,11 @@ function start() {
                 .duration(1000)
                 .attr("d", arc);
         });
+
+        d3.select("#control2").text(collegeMap2[newCollege2].control);
+        d3.select("#region2").text(collegeMap2[newCollege2].region);
+        d3.select("#admitrate2").text(collegeMap2[newCollege2].admission);
+        d3.select("#retention2").text(collegeMap2[newCollege2].retention);
 
         function changeCollege2() {
             newCollege2 = d3.select('#select2').property('value');

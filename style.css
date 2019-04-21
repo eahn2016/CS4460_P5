@@ -8,25 +8,32 @@ body {
 	font-family: Avenir;
 }
 
+span {
+    display: block;
+}
+
 #wrapper {
 	clear:both;
 }
 
 #graph1 {
     float:left;
-    padding-left: 10%;
+    padding-left: 5%;
 }
 
 #graph2{
 	float:right;
-	padding-right: 10%;
+	padding-right: 5%;
 }
 
-
-#chart3 {
-	text-align: left;
+#chart1 {
+	float: left;
+    padding-left: 12.5%;
+    text-align: center;
 }
 
-#chart4 {
-	text-align: right;
+#chart2 {
+	float: right;
+    padding-right: 12.5%;
+    text-align: center;
 }
