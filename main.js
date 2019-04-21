@@ -32,6 +32,7 @@ function start() {
     var colors = {"White": "#94D1FF",
                 "Black": "#6266CC",
                 "Hispanic": "#1C2199",
+                "Asian": "#CC6266",
                 "American Indian": "#FFE8D4",
                 "Pacific Islander": "#CC8462",
                 "Biracial": "#95CCB7"};
@@ -48,6 +49,7 @@ function start() {
             collegeMap1[college1].white = +d["% White"];
             collegeMap1[college1].black = +d["% Black"];
             collegeMap1[college1].hispanic = +d["% Hispanic"];
+            collegeMap1[college1].asian = +d["% Asian"];
             collegeMap1[college1].indian = +d["% American Indian"];
             collegeMap1[college1].pacific = +d["% Pacific Islander"];
             collegeMap1[college1].biracial = +d["% Biracial"];
@@ -61,10 +63,10 @@ function start() {
             collegeMap2[college2].white = +d["% White"];
             collegeMap2[college2].black = +d["% Black"];
             collegeMap2[college2].hispanic = +d["% Hispanic"];
+            collegeMap2[college2].asian = +d["% Asian"];
             collegeMap2[college2].indian = +d["% American Indian"];
             collegeMap2[college2].pacific = +d["% Pacific Islander"];
             collegeMap2[college2].biracial = +d["% Biracial"];
-
 
             collegeMap2[college2].control = d["Control"];
             collegeMap2[college2].region = d["Region"];
@@ -79,9 +81,11 @@ function start() {
         var college1Races = [{"Race": "White", "Percent": collegeMap1[newCollege1].white},
                 {"Race": "Black", "Percent": collegeMap1[newCollege1].black},
                 {"Race": "Hispanic", "Percent": collegeMap1[newCollege1].hispanic},
+                {"Race": "Asian", "Percent": collegeMap1[newCollege1].asian},
                 {"Race": "American Indian", "Percent": collegeMap1[newCollege1].indian},
                 {"Race": "Pacific Islander", "Percent": collegeMap1[newCollege1].pacific},
                 {"Race": "Biracial", "Percent": collegeMap1[newCollege1].biracial}];
+
             var pie = d3.pie()
                 .value(function(d) { return d.Percent; })
                 (college1Races);
@@ -107,6 +111,7 @@ function start() {
             var college1Races = [{"Race": "White", "Percent": collegeMap1[newCollege1].white},
                 {"Race": "Black", "Percent": collegeMap1[newCollege1].black},
                 {"Race": "Hispanic", "Percent": collegeMap1[newCollege1].hispanic},
+                {"Race": "Asian", "Percent": collegeMap1[newCollege1].asian},
                 {"Race": "American Indian", "Percent": collegeMap1[newCollege1].indian},
                 {"Race": "Pacific Islander", "Percent": collegeMap1[newCollege1].pacific},
                 {"Race": "Biracial", "Percent": collegeMap1[newCollege1].biracial}];
@@ -129,6 +134,7 @@ function start() {
                 var college1Races = [{"Race": "White", "Percent": collegeMap1[newCollege1].white},
                     {"Race": "Black", "Percent": collegeMap1[newCollege1].black},
                     {"Race": "Hispanic", "Percent": collegeMap1[newCollege1].hispanic},
+                    {"Race": "Asian", "Percent": collegeMap1[newCollege1].asian},
                     {"Race": "American Indian", "Percent": collegeMap1[newCollege1].indian},
                     {"Race": "Pacific Islander", "Percent": collegeMap1[newCollege1].pacific},
                     {"Race": "Biracial", "Percent": collegeMap1[newCollege1].biracial}];
@@ -163,9 +169,11 @@ function start() {
         var college2Races = [{"Race": "White", "Percent": collegeMap2[newCollege2].white},
             {"Race": "Black", "Percent": collegeMap2[newCollege2].black},
             {"Race": "Hispanic", "Percent": collegeMap2[newCollege2].hispanic},
+            {"Race": "Asian", "Percent": collegeMap2[newCollege2].asian},
             {"Race": "American Indian", "Percent": collegeMap2[newCollege2].indian},
             {"Race": "Pacific Islander", "Percent": collegeMap2[newCollege2].pacific},
             {"Race": "Biracial", "Percent": collegeMap2[newCollege2].biracial}];
+
         var pie = d3.pie()
             .value(function(d) { return d.Percent; })
             (college2Races);
@@ -189,6 +197,7 @@ function start() {
             var college2Races = [{"Race": "White", "Percent": collegeMap2[newCollege2].white},
                 {"Race": "Black", "Percent": collegeMap2[newCollege2].black},
                 {"Race": "Hispanic", "Percent": collegeMap2[newCollege2].hispanic},
+                {"Race": "Asian", "Percent": collegeMap2[newCollege2].asian},
                 {"Race": "American Indian", "Percent": collegeMap2[newCollege2].indian},
                 {"Race": "Pacific Islander", "Percent": collegeMap2[newCollege2].pacific},
                 {"Race": "Biracial", "Percent": collegeMap2[newCollege2].biracial}];
@@ -212,9 +221,11 @@ function start() {
                 var college2Races = [{"Race": "White", "Percent": collegeMap2[newCollege2].white},
                     {"Race": "Black", "Percent": collegeMap2[newCollege2].black},
                     {"Race": "Hispanic", "Percent": collegeMap2[newCollege2].hispanic},
+                    {"Race": "Asian", "Percent": collegeMap2[newCollege2].asian},
                     {"Race": "American Indian", "Percent": collegeMap2[newCollege2].indian},
                     {"Race": "Pacific Islander", "Percent": collegeMap2[newCollege2].pacific},
                     {"Race": "Biracial", "Percent": collegeMap2[newCollege2].biracial}];
+
                 var pie = d3.pie()
                     .value(function(d) { return d.Percent; })
                     (college2Races);
