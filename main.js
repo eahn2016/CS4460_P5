@@ -43,8 +43,9 @@ function start() {
                     "Hispanic": "#1C2199",
                     "Asian": "#CC6266",
                     "American Indian": "#FFE8D4",
-                    "Pacific Islander": "#CC8462",
-                    "Biracial": "#95CCB7"};
+                    "Pacific Islander": "#CACC62",
+                    "Biracial": "#95CCB7",
+                    "Other": "#FFB0AD"};
 
         data.forEach(function(d) {
             var college1 = d.Name;
@@ -103,7 +104,14 @@ function start() {
                 {"Race": "Asian", "Percent": collegeMap1[newCollege1].asian},
                 {"Race": "American Indian", "Percent": collegeMap1[newCollege1].indian},
                 {"Race": "Pacific Islander", "Percent": collegeMap1[newCollege1].pacific},
-                {"Race": "Biracial", "Percent": collegeMap1[newCollege1].biracial}];
+                {"Race": "Biracial", "Percent": collegeMap1[newCollege1].biracial},
+                {"Race": "Other", "Percent": (1 - collegeMap1[newCollege1].white
+                                                - collegeMap1[newCollege1].black
+                                                - collegeMap1[newCollege1].hispanic
+                                                - collegeMap1[newCollege1].asian
+                                                - collegeMap1[newCollege1].indian
+                                                - collegeMap1[newCollege1].pacific
+                                                - collegeMap1[newCollege1].biracial)}];
 
         var pie1 = d3.pie()
             .value(function(d) { return d.Percent; })
@@ -155,7 +163,14 @@ function start() {
                 {"Race": "Asian", "Percent": collegeMap1[newCollege1].asian},
                 {"Race": "American Indian", "Percent": collegeMap1[newCollege1].indian},
                 {"Race": "Pacific Islander", "Percent": collegeMap1[newCollege1].pacific},
-                {"Race": "Biracial", "Percent": collegeMap1[newCollege1].biracial}];
+                {"Race": "Biracial", "Percent": collegeMap1[newCollege1].biracial},
+                {"Race": "Other", "Percent": (1 - collegeMap1[newCollege1].white
+                                                - collegeMap1[newCollege1].black
+                                                - collegeMap1[newCollege1].hispanic
+                                                - collegeMap1[newCollege1].asian
+                                                - collegeMap1[newCollege1].indian
+                                                - collegeMap1[newCollege1].pacific
+                                                - collegeMap1[newCollege1].biracial)}];
 
             d3.select("#control1").text(collegeMap1[newCollege1].control);
             d3.select("#region1").text(collegeMap1[newCollege1].region);
@@ -179,7 +194,14 @@ function start() {
                     {"Race": "Asian", "Percent": collegeMap1[newCollege1].asian},
                     {"Race": "American Indian", "Percent": collegeMap1[newCollege1].indian},
                     {"Race": "Pacific Islander", "Percent": collegeMap1[newCollege1].pacific},
-                    {"Race": "Biracial", "Percent": collegeMap1[newCollege1].biracial}];
+                    {"Race": "Biracial", "Percent": collegeMap1[newCollege1].biracial},
+                    {"Race": "Other", "Percent": (1 - collegeMap1[newCollege1].white
+                                                    - collegeMap1[newCollege1].black
+                                                    - collegeMap1[newCollege1].hispanic
+                                                    - collegeMap1[newCollege1].asian
+                                                    - collegeMap1[newCollege1].indian
+                                                    - collegeMap1[newCollege1].pacific
+                                                    - collegeMap1[newCollege1].biracial)}];
 
                 var pie1 = d3.pie()
                     .value(function(d) { return d.Percent; })
@@ -234,7 +256,14 @@ function start() {
             {"Race": "Asian", "Percent": collegeMap2[newCollege2].asian},
             {"Race": "American Indian", "Percent": collegeMap2[newCollege2].indian},
             {"Race": "Pacific Islander", "Percent": collegeMap2[newCollege2].pacific},
-            {"Race": "Biracial", "Percent": collegeMap2[newCollege2].biracial}];
+            {"Race": "Biracial", "Percent": collegeMap2[newCollege2].biracial},
+            {"Race": "Other", "Percent": (1 - collegeMap2[newCollege2].white
+                                - collegeMap2[newCollege2].black
+                                - collegeMap2[newCollege2].hispanic
+                                - collegeMap2[newCollege2].asian
+                                - collegeMap2[newCollege2].indian
+                                - collegeMap2[newCollege2].pacific
+                                - collegeMap2[newCollege2].biracial)}];
 
         var pie = d3.pie()
             .value(function(d) { return d.Percent; })
@@ -288,7 +317,14 @@ function start() {
                 {"Race": "Asian", "Percent": collegeMap2[newCollege2].asian},
                 {"Race": "American Indian", "Percent": collegeMap2[newCollege2].indian},
                 {"Race": "Pacific Islander", "Percent": collegeMap2[newCollege2].pacific},
-                {"Race": "Biracial", "Percent": collegeMap2[newCollege2].biracial}];
+                {"Race": "Biracial", "Percent": collegeMap2[newCollege2].biracial},
+                {"Race": "Other", "Percent": (1 - collegeMap2[newCollege2].white
+                                    - collegeMap2[newCollege2].black
+                                    - collegeMap2[newCollege2].hispanic
+                                    - collegeMap2[newCollege2].asian
+                                    - collegeMap2[newCollege2].indian
+                                    - collegeMap2[newCollege2].pacific
+                                    - collegeMap2[newCollege2].biracial)}];
 
 
             d3.select("#control2").text(collegeMap2[newCollege2].control);
@@ -311,7 +347,14 @@ function start() {
                     {"Race": "Asian", "Percent": collegeMap2[newCollege2].asian},
                     {"Race": "American Indian", "Percent": collegeMap2[newCollege2].indian},
                     {"Race": "Pacific Islander", "Percent": collegeMap2[newCollege2].pacific},
-                    {"Race": "Biracial", "Percent": collegeMap2[newCollege2].biracial}];
+                    {"Race": "Biracial", "Percent": collegeMap2[newCollege2].biracial},
+                    {"Race": "Other", "Percent": (1 - collegeMap2[newCollege2].white
+                                        - collegeMap2[newCollege2].black
+                                        - collegeMap2[newCollege2].hispanic
+                                        - collegeMap2[newCollege2].asian
+                                        - collegeMap2[newCollege2].indian
+                                        - collegeMap2[newCollege2].pacific
+                                        - collegeMap2[newCollege2].biracial)}];
 
                 var pie = d3.pie()
                     .value(function(d) { return d.Percent; })
