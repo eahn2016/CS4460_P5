@@ -16,6 +16,11 @@ svg {
   margin-left: 15px;
 }
 
+div.tooltip {
+  position: absolute;
+  text-align: center;
+}
+
 #legend {
   text-align: center;
 }
@@ -45,3 +50,5 @@ svg {
   padding-right: 12.5%;
   text-align: center;
 }
+
+
